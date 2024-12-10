@@ -2,7 +2,6 @@ package org.firstinspires.ftc.teamcode.hardware.subsystem;
 
 import com.acmerobotics.roadrunner.Action;
 import com.acmerobotics.roadrunner.InstantAction;
-import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -10,7 +9,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 import org.firstinspires.ftc.teamcode.hardware.robot.Config;
 import org.firstinspires.ftc.teamcode.hardware.Globals;
 
-public class Intake implements SubSystem {
+public class Intake implements TeleOpSubSystem {
     public enum IntakePosition {
         DUMPING,
         RETRACTED,

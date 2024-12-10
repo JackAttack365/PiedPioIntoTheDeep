@@ -7,7 +7,7 @@ import org.firstinspires.ftc.teamcode.hardware.Globals;
 import org.firstinspires.ftc.teamcode.hardware.utils.DrivePowersBundle;
 
 
-public class Drive implements SubSystem {
+public class Drive implements TeleOpSubSystem {
     Config config = null;
 
     private DcMotor leftFrontDrive;

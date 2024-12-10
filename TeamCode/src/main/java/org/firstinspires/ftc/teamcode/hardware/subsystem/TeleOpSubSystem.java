@@ -1,6 +1,10 @@
 package org.firstinspires.ftc.teamcode.hardware.subsystem;
 
-public interface SubSystem {
+import com.acmerobotics.roadrunner.Action;
+
+import java.util.List;
+
+public interface TeleOpSubSystem {
     void init();
     void start();
     void update();

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.acmerobotics.dashboard.telemetry.TelemetryPacket;
 import com.acmerobotics.roadrunner.Action;
+import com.acmerobotics.roadrunner.SleepAction;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
@@ -11,7 +12,10 @@ import org.firstinspires.ftc.teamcode.hardware.robot.enums.CycleTarget;
 import org.firstinspires.ftc.teamcode.hardware.robot.Config;
 import org.firstinspires.ftc.teamcode.hardware.Globals;
 
-public class Outtake implements SubSystem {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Outtake implements TeleOpSubSystem {
     public enum LiftPosition {
         BOTTOM,
         LOWERING,
@@ -28,7 +32,6 @@ public class Outtake implements SubSystem {
 
     public Outtake(Config config) {this.config = config;}
 
-    @Override
     public void init() {
         lift = config.hardwareMap.get(DcMotor.class, Globals.Outtake.LIFT_MOTOR);
 
@@ -44,12 +47,16 @@ public class Outtake implements SubSystem {
         position = LiftPosition.BOTTOM;
     }
 
-    @Override
-    public void start() {
-    }
+    public void start() {}
 
-    @Override
     public void update() {
+        List<Action> a = new ArrayList<>();
+        List<Action> b = new ArrayList<>();
+        List<Action> c = new ArrayList<>();
+
+        a.set(0, new SleepAction(1));
+        b.set(0, new SleepAction(4));
+
         if (config.gamepad2.back) {
             lift.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
             lift.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
